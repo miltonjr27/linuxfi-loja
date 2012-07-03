@@ -10,7 +10,7 @@ class CriarPedidosEItens < ActiveRecord::Migration
     create_table :itens do |t| 
       t.integer :pedido_id, :null => false 
       t.integer :produto_id, :null => false 
-      t.integer :quantidade, null => false
+      t.integer :quantidade, :null => false
       t.timestamps
     end
 

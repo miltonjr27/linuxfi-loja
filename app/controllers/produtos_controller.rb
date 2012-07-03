@@ -2,6 +2,12 @@ class ProdutosController < ApplicationController
 
   def index
     @produto = Produto.all
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @produtos }
+      format.xml { render :xml => @produtos }
+    end
   end
 
   def show 
