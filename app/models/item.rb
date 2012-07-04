@@ -17,4 +17,18 @@ class Item < ActiveRecord::Base
   def incrementar_quantidade( quantidade)
     self.quantidade += quantidade.to_i
   end
+
+  def nome
+    self.produto.nome
+  end
+
+
+  def preco_unitario
+    self.produto.preco
+  end
+
+  def preco_total
+    self.produto.preco * self.quantidade
+  end
+
 end

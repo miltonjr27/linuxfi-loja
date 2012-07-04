@@ -1,5 +1,9 @@
 class ItensController < ApplicationController
 
+
+  def index
+  end
+
   def create
     
     if self.pedido_atual.new_record?
@@ -15,7 +19,7 @@ class ItensController < ApplicationController
       format.html do
         flash[:success] = %Q!O produto #{@produto.nome} foi 
           adicionado com sucesso no seu carrinho!
-        redirect_to produtos_path
+        redirect_to itens_path
       end
     end
   end
