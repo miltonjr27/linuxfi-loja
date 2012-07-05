@@ -6,13 +6,7 @@
   <%= link_to( 'Novo produto', new_produto_url, :class => 'btn btn-primary' ) %>
 </p>
 <table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Preço</th>
-      <th>Quantidade</th>
-    </tr> 
-  </thead>
+  <%= render_head Produto, :nome, :preco, :quantidade  %>
   <tbody>
     <% @produto.each do |produto| %>
       <tr>
