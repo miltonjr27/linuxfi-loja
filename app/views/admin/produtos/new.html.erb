@@ -2,7 +2,7 @@
   Novo <%= @produto.class.model_name %>
 </h2>
 
-<%= form_for @produto do |f| %>
+<%= form_for @produto, :url => [:admin, @produto] do |f| %>
 
   <% unless @produto.errors.blank? %>
 
