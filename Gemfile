@@ -5,13 +5,23 @@ gem 'rails', '3.2.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'bootstrap-will_paginate', '0.0.7'
 
 gem 'haml'
 
 gem 'twitter-bootstrap-rails' , '2.1.0'
 
 gem 'will_paginate'
+
+
+group :development do
+  gem 'heroku'
+  gem 'mysql2'
+end
+
+group :production do 
+  gem 'pg'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
