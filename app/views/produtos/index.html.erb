@@ -6,19 +6,19 @@
   <%= link_to( 'Novo produto', new_produto_url, :class => 'btn btn-primary' ) %>
 </p>
 <table class="table table-bordered table-striped">
-  <%= render_head Produto, :nome, :preco, :quantidade  %>
+  <%= render_head Produto, :nome, :preco  %>
   <tbody>
-    <% @produto.each do |produto| %>
+    <% @produtos.each do |produto| %>
       <tr>
         <td><%= link_to( produto.nome, produto_path(produto) ) %></td>
         <td><%= number_to_currency produto.preco %></td>
         <td>
-          <%= form_tag itens_path, :method => :post do %>
-            <%= hidden_field_tag :produto_id, produto.id %>
-            <%= text_field_tag :quantidade, 1 %>
-            <%= submit_tag 'Adicionar' %>
-          <% end %>
-          </td>
+          <%= link_to 'Editar', edit_admin_produto_path(produto), :class => 'btn btn-primary'%>
+
+          <%= link_to 'Remover', admin_produto_path(produto), 
+                :method => 'delete',
+                :class => 'btn btn-danger', :data => {:confirm => 'Tem certeza?'}%>
+        </td>
       </tr>
     <% end %>
   </tbody>

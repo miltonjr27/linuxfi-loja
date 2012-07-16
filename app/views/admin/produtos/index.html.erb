@@ -1,6 +1,6 @@
 <h2> Administração de produtos</h2>
 
-<%= will_paginate @produtos %>
+<%= will_paginate @records %>
 
 <div class="well">
   <%= link_to 'Novo Produto', new_admin_produto_path, :class => 'btn btn-primary' %>
@@ -12,7 +12,7 @@
     :preco %>
 
   <tbody>
-    <% @produtos.each do |produto| %>
+    <% @records.each do |produto| %>
       <tr>
         <td> <%= produto.nome %></td>
         <td>
@@ -25,4 +25,4 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @produtos %>
+<%= will_paginate @records %>
