@@ -32,7 +32,7 @@ class Admin::CrudController < Admin::BaseController
   alias :update :create
 
   def destroy
-    @produto.destroy
+    @record.destroy
     flash[:success] = "O #{record_human_name} foi removido com sucesso"
     redirect_to send("admin_#{record_plural_name}_path")
     
@@ -41,7 +41,7 @@ class Admin::CrudController < Admin::BaseController
   protected
 
   def load_record
-    @produto = if params[:id].blank?
+    @record = if params[:id].blank?
       record_type.new
     else
       record_type.find(params[:id])
