@@ -1,9 +1,30 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :pedido_atual
+  include AutenticacaoControllerHelper
+
+  helper_method :pedido_atual, :usuario_atual, :logged_in?, :t, :ts
+
+  before_filter :selecionar_lingua
 
   protected
+
+  def selecionar_lingua
+    I18n.locale = if logged_in?
+      self.usuario_atual.lingua
+    else
+      I18n.default_locale
+    end
+  end
+
+
+  def t( key, options ={} )
+    I18n.translate( key, options )
+  end
+
+  def ts( key, options = {} )
+    I18n.translate("views.#{controller_name}.#{key}", options)
+  end
 
   def carregar_pagina
     @pagina = params[:page] || 1

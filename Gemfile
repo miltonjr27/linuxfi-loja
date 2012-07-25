@@ -11,6 +11,8 @@ gem 'haml'
 
 gem 'twitter-bootstrap-rails' , '2.1.0'
 
+gem 'uuid'
+
 gem 'will_paginate'
 
 

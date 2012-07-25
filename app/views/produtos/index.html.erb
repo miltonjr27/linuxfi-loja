@@ -1,25 +1,23 @@
 <h2>
-  Lista de Produtos
+  <%= ts("index.title")%>
 </h2>
 
-<p>
-  <%= link_to( 'Novo produto', new_produto_url, :class => 'btn btn-primary' ) %>
-</p>
 <table class="table table-bordered table-striped">
-  <%= render_head Produto, :nome, :preco  %>
+  <%= render_head Produto, :nome, :preco, :quantidade %>
   <tbody>
-    <% @produtos.each do |produto| %>
+  <% @produtos.each do |produto| %>
       <tr>
-        <td><%= link_to( produto.nome, produto_path(produto) ) %></td>
+        <td><%= link_to( produto.nome,
+                         produto_path(produto)  )%></td>
         <td><%= number_to_currency produto.preco %></td>
         <td>
-          <%= link_to 'Editar', edit_admin_produto_path(produto), :class => 'btn btn-primary'%>
-
-          <%= link_to 'Remover', admin_produto_path(produto), 
-                :method => 'delete',
-                :class => 'btn btn-danger', :data => {:confirm => 'Tem certeza?'}%>
+          <%= form_tag itens_path, :method => :post do %>
+              <%= hidden_field_tag :produto_id, produto.id %>
+              <%= text_field_tag :quantidade, 1, :class => 'span1'  %>
+              <%= submit_tag ts("index.button"), :class => 'btn btn-primary' %>
+          <% end %>
         </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>

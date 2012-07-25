@@ -1,20 +1,29 @@
 <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <%= link_to 'Loja', root_url, :class => 'brand' %>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="">
-                <%= link_to 'Produtos', produtos_url %>
-              </li>
-            </ul>
-            <ul class="nav pull-right">
-              <li class="divider-vertical"></li>
-              <li>
-                <%= link_to 'Carrinho de compras', itens_url %>
-              </li>
-            </ul>
-          </div>
-        </div>
+  <div class="navbar-inner">
+    <div class="container">
+      <%=  link_to 'Loja', root_url, :class => 'brand' %>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="">
+            <%= link_to 'Produtos', produtos_url %>
+          </li>
+        </ul>
+        <ul class="nav pull-right">
+          <li class="divider-vertical"></li>
+          <li>
+            <% if logged_in? %>
+                <%= link_to "Logoff #{usuario_atual.nome}",
+                            session_url,
+                            :method => :delete %>
+            <% else %>
+                <%=  link_to 'Login', new_session_url %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'Carrinho de compras', itens_url %>
+          </li>
+        </ul>
       </div>
     </div>
+  </div>
+</div>

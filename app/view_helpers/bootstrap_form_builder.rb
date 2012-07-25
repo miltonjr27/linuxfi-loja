@@ -1,6 +1,6 @@
 class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
 
-  [:text_field, :text_area, :password_field].each do |item|
+  [:text_field, :text_area, :password_field, :file_field, :check_box].each do |item|
     class_eval( %Q!
 
       def #{item}( property, options = {} )

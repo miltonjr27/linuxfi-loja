@@ -1,7 +1,7 @@
 class ProdutosController < ApplicationController
 
   def index
-    @produto = Produto.all
+    @produtos = Produto.all
 
     respond_to do |format|
       format.html

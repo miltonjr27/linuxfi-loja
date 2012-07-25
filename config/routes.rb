@@ -8,9 +8,19 @@ Loja::Application.routes.draw do
     end
   end
 
+  resources :usuarios do
+    collection do
+    post :atualizar_lingua
+    end
+  end
+  resource :session
+
+  match "admin", :to => "admin/produtos#index"
+
   namespace :admin do
     resources :categorias
     resources :produtos
+    resources :usuarios
   end
   root :to => 'produtos#index'
 

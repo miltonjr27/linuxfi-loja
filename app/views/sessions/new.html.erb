@@ -1,0 +1,15 @@
+<h2><%= ts("new.title") %></h2>
+
+<%= form_for @usuario,
+             :url => session_url,
+             :builder => BootstrapFormBuilder,
+             :html => {:class => 'form-horizontal'}  do |f| %>
+
+    <%= f.text_field :email %>
+    <%= f.password_field :senha %>
+
+    <div class="form-actions">
+      <%= f.primary_submit ts("new.button")  %>
+    </div>
+
+<% end %>
