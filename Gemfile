@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -11,6 +11,8 @@ gem 'haml'
 
 gem 'twitter-bootstrap-rails' , '2.1.0'
 
+gem 'rails', '3.2.6'
+
 gem 'uuid'
 
 gem 'will_paginate'
@@ -19,6 +21,12 @@ gem 'will_paginate'
 group :development do
   gem 'heroku'
   gem 'mysql2'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'shoulda'
+  gem 'factory_girl'
 end
 
 group :production do 
